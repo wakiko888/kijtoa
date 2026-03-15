@@ -1,2 +1,2 @@
-print("caca")
-print("kobalocado")
+print(caca)
+int(input("Combien de boule a tu ?"))
