@@ -2,31 +2,34 @@ import random
 import time 
 
 #Import on top
+def dmg_calc(strength, damage,weapon_mutipl):
+    formual = (strength/10) + weapon_mutipl
+    if formual < 1:
+        formual =  1
+    damage = random.randint(1,10) * formual
+    return damage
+
 def class_choosing():
-    print("What class are you choosing?")
+    print("So... What class are you choosing?")
     print("1. Warrior")
     print("2. Rogue")
-
     choice = input("Your choice: ")
-
     if choice == "1":
-        Warrior()
+        return Warrior()
     elif choice == "2":
-        Rogue() 
-
+        return Rogue() 
 def Warrior():
     Warrior = True
     print("You've became a Warrior. Ourah !")
-    return Warrior 
-
+    return "Warrior"
 def Rogue():
     Rogue = True
     print("You've became a Rogue. Ourah !")
-    return Rogue 
-
-player_name = input("what's you're name ?")
-player_class = class_choosing()
-
+    return "Rogue"
+def attack(damage, health):
+    health += -damage
+    return health
+#Fonction on top
 
 class Stat:
     def __init__(self, health, strength, defense, speed):
@@ -43,27 +46,22 @@ class Character:
             self.stat = Stat(100,5,5,5)
         elif self.classe == "Rogue":
             self.stat = Stat(75,3,5,7)
+        else:
+            self.stat = Stat(50,1,1,1)
 
+#Class on top
 
-
+player_name = input("what's you're character name ?")
+player_class = class_choosing()
+Goblin_attack = random.randint(1,15)
 player= Character(player_name,player_class)
-print(player.name)
+Goblin = Character("Goblin1", Warrior )
 
 
-#J'ai pas encore fait de systeme ou les stats influent sur l'attack et la vie. Je suis fatigué
-
-def attack(damage, health):
-    health += -damage
-    return health
-
-Hero_Hp = 100
-Golbin_attack = random.randint(1, 15)
-Hero_Hp = attack(Golbin_attack, Hero_Hp)
-if Golbin_attack == 1 :
+player.stat.health = attack(Goblin_attack, player.stat.health)
+if Goblin_attack == 1 :
     print("Le Goblin attaque" ,player.name ,  " pour 1 miserable dégât")
 else:
-    print("Le Golblin attaque ", player.name, "pour ", Golbin_attack, "dégâts")
-
+    print("Le Goblin attaque ", player.name, "pour ", Goblin_attack, "dégâts")
 time.sleep(1)
-
-print("You're current health is ", Hero_Hp)
+print("You're current health is ", player.stat.health)
