@@ -1,14 +1,25 @@
 import random
 import time 
 
+
+
 #Import on top
-def dmg_calc(strength, damage,weapon_mutipl):
+def dmg_calc(strength,weapon_mutipl):
     formual = (strength/10) + weapon_mutipl
     if formual < 1:
         formual =  1
     damage = random.randint(1,10) * formual
     return damage
+def attack_order(speed_hero, speed_monster):
+    if speed_hero > speed_monster:
+        order = 0
+    elif speed_monster > speed_hero:
+        order = 1
+    elif speed_hero ==speed_monster:
+        order = random.randint(0,1)
+    return order
 
+    
 def class_choosing():
     print("So... What class are you choosing?")
     print("1. Warrior")
@@ -29,6 +40,7 @@ def Rogue():
 def attack(damage, health):
     health += -damage
     return health
+
 #Fonction on top
 
 class Stat:
@@ -49,16 +61,27 @@ class Character:
         else:
             self.stat = Stat(50,1,1,1)
 
+
 #Class on top
+#Game and test
 
 player_name = input("what's you're character name ?")
 player_class = class_choosing()
-Goblin_attack = random.randint(1,15)
 player= Character(player_name,player_class)
-Goblin = Character("Goblin1", Warrior )
+Goblin = Character("philipe","Rogue")
+Goblin_attack = dmg_calc(Goblin.stat.strength, 0)
+
+while 1==1:
+    if player.stat.health <=0:
+        print("Game over....")
+        
+    
 
 
-player.stat.health = attack(Goblin_attack, player.stat.health)
+player.stat.health = 0
+
+
+attack(Goblin_attack, player.stat.health)
 if Goblin_attack == 1 :
     print("Le Goblin attaque" ,player.name ,  " pour 1 miserable dégât")
 else:
