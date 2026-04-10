@@ -66,27 +66,3 @@ class Character:
 
 #Class on top
 #Game and test
-
-player_name = input("what's you're character name ?\n")
-player_class = class_choosing()
-player= Character(player_name,player_class)
-Goblin = Character("philipe","Rogue")
-Goblin_attack = dmg_calc(Goblin.stat.strength, 0)
-
-while 1==1:
-    if player.stat.health <=0:
-        print("Game over....")
-        
-    
-
-
-player.stat.health = 0
-
-
-attack(Goblin_attack, player.stat.health)
-if Goblin_attack == 1 :
-    print("Le Goblin attaque" ,player.name ,  " pour 1 miserable dégât")
-else:
-    print("Le Goblin attaque ", player.name, "pour ", Goblin_attack, "dégâts")
-time.sleep(1)
-print("You're current health is ", player.stat.health)
