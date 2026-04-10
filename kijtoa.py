@@ -1,8 +1,6 @@
 import random
 import time 
 
-
-
 #Import on top
 def dmg_calc(strength,weapon_mutipl):
     formual = (strength/10) + weapon_mutipl
@@ -64,7 +62,7 @@ class Character:
             self.stat = Stat(75,3,5,7)
         else:
             self.stat = Stat(50,1,1,1)
-
+    
 
 #Class on top
 #Game and test
