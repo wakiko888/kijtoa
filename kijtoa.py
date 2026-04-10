@@ -10,6 +10,7 @@ def dmg_calc(strength,weapon_mutipl):
         formual =  1
     damage = random.randint(1,10) * formual
     return damage
+
 def attack_order(speed_hero, speed_monster):
     if speed_hero > speed_monster:
         order = 0
@@ -21,22 +22,25 @@ def attack_order(speed_hero, speed_monster):
 
     
 def class_choosing():
-    print("So... What class are you choosing?")
+    print("So... What class are you choosing?\n")
     print("1. Warrior")
     print("2. Rogue")
-    choice = input("Your choice: ")
+    choice = input("Your choice:\n ")
     if choice == "1":
         return Warrior()
     elif choice == "2":
         return Rogue() 
+
 def Warrior():
     Warrior = True
     print("You've became a Warrior. Ourah !")
     return "Warrior"
+
 def Rogue():
     Rogue = True
     print("You've became a Rogue. Ourah !")
     return "Rogue"
+
 def attack(damage, health):
     health += -damage
     return health
@@ -65,7 +69,7 @@ class Character:
 #Class on top
 #Game and test
 
-player_name = input("what's you're character name ?")
+player_name = input("what's you're character name ?\n")
 player_class = class_choosing()
 player= Character(player_name,player_class)
 Goblin = Character("philipe","Rogue")
