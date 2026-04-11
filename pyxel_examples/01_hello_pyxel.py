@@ -3,13 +3,14 @@ import pyxel
 
 class App:
     def __init__(self):
-        pyxel.init(160, 120, title="Hello Pyxel")
+        pyxel.init(160, 120, title="caca")
         pyxel.images[0].load(0, 0, "assets/pyxel_logo_38x16.png")
         pyxel.run(self.update, self.draw)
 
     def update(self):
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
+        print("Caca")
 
     def draw(self):
         pyxel.cls(0)
