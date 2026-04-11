@@ -1,3 +1,7 @@
+#ajouter "self.console = console(posX console initial, posY console initial, tailleX console initial, tailleY console initial, taille_ecran_x, taille_ecran_y)" au début de __init__
+#ajouter "self.console.print_text("texte", 7 <- nombre correspondant a la couleur de 1 a 16)", dans update chaque fois que on veut ajouter du texte a la console
+#ajouter "self.console.print_logs()" dans draw pour draw tout le texte ajouter
+
 import pyxel
 
 class console():
