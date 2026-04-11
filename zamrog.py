@@ -1,18 +1,23 @@
 import pyxel
+def Rogue():
+    return "Rogue"
+def Warrior():
+    return "Warrior"
 
-
-class App:
+class App():
     def __init__(self):
-        pyxel.init(160, 120, title="Hello Pyxel")
-        pyxel.run(self.update, self.draw)
-
+        pyxel.__init__(320,240, title="Marion")
+        pyxel.run(self.update,self.draw)
     def update(self):
-        if pyxel.btnp(pyxel.KEY_Q):
-            pyxel.quit()
+        if pyxel.btnp(pyxel.KEY_1):
+            Warrior()
+        if pyxel.btnp(pyxel.KEY_2):
+            Rogue()
+        
 
     def draw(self):
-        pyxel.cls(0)
-        pyxel.text(55, 41, "Hello, Pyxel!", pyxel.frame_count % 16)
+        pyxel.cls(7)
+        pyxel.text(40, 70, self.update, 7)
 
 
-App()
+
