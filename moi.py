@@ -16,19 +16,24 @@ class App:
     def update(self):
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
-        if self.Ytext == 10:
-            pyxel.cls(0)
-            self.Ytext = 0
-        if pyxel.frame_count == 1:
+
+        if pyxel.btnp(pyxel.KEY_T):
             #mettre self.print_text(Le texte a afficher , le numéro correspondant a la couleur du texte)
             self.print_text("J'aime bouffer", 2)
+
+
+        if pyxel.btnp(pyxel.KEY_R):
+            #mettre self.print_text(Le texte a afficher , le numéro correspondant a la couleur du texte)
             self.print_text("J'aime bouffer ton pere", 7)
-            self.print_text("J'aime bouffer ta mere", 16)
 
     def draw(self):
         pyxel.cls(0)
         count = 0
         while count < len(self.logs):
+            if count >= 39:
+                self.logs.pop(0)
+                self.color_logs.pop(0)
+                count += -1
             pyxel.text(0, count*6, self.logs[count], self.color_logs[count])
             count += 1
 App()
