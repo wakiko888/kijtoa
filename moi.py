@@ -12,8 +12,6 @@ class App:
         pyxel.mouse(True)
         pyxel.run(self.update, self.draw)
 
-
-
     def update(self):
         self.console.Xpos = pyxel.mouse_x
         self.console.Ypos = pyxel.mouse_y
